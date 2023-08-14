@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    
+    <script>
+      // function vow(str){
+      //   var vow=['a','e','i','o','u'];
+      //   var arr=str.split("");
+      //   var count=0;
+      //   for(var i=0;i<arr.length;i++){
+      //     for(var j=0;j<vow.length;j++){
+      //       if(arr[i]==vow[j]){
+      //         count++;
+      //       }
+      //     }
+        
+      // }
+      // return count;
+      // }
+        
+      // console.log(vow("aeou"));
+      
+
+      //REGEX
+      function vow(str){
+        return str.replace(/[^aeiou]/g,"").length;
+      }
+
+      console.log(vow("ae"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    
+    <script>
+      var arr=[1,2,3,1,1,1,1,2,2,8,1,9];
+      var max=0;
+
+      for(var i=0;i<arr.length;i++){
+        var count=0;
+        for(var j=0;j<arr.length;j++){
+          if(arr[i]==arr[j]){
+            count++;
+            if(count>max){
+              max=arr[i]
+            }
+          }
+        }
+      }
+      console.log(max);
+
+    </script>
+</body>
+</html>

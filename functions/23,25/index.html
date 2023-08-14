@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    
+    <script>
+    //23
+    //    function nonRep(str){
+    //      var arr=str.split("");
+    //      var ctr=0;
+    //      for(var i=0;i<arr.length;i++){
+    //         ctr=0;
+    //         for(var j=0;j<arr.length;j++){
+    //             if(arr[i]==arr[j]){
+    //                 ctr++;
+    //             }
+    //         }
+    //         if(ctr<2){
+    //             var res=arr[i];
+    //             break;
+    //         }
+    //      }
+    //      return res;
+    //    }
+    //    console.log(nonRep('abacddbec'));
+
+    
+    //25
+    function long(arr){
+        var max_len=arr[0].length;
+        var ans=arr[0];
+        for(var i=1;i<arr.length;i++){
+            if(arr[i].length>max_len){
+                max_len=arr[i].length;
+                ans=arr[i];
+            }
+
+        }
+
+        return ans;
+
+    }
+    console.log(long(['India','Australia','United States of America']));
+    </script>
+</body>
+</html>

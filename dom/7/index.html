@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset=utf-8 /> 
+<title>Create a table</title> 
+<style type="text/css"> 
+body {margin: 30px;} 
+</style>  
+</head>
+
+<body> 
+<table id="myTable" border="1"> 
+</table>
+<form> 
+<input type="button" onclick="createTable()" value="Create the table"> 
+</form>
+
+<script>
+    function createTable(){
+        var row=prompt("Enter row");
+        var col=prompt("Enter col");
+
+        for(var i=0;i<row;i++){
+            var r=document.getElementById("myTable").insertRow(i);
+            for(var j=0;j<col;j++){
+                var c=r.insertCell(j);
+                c.innerHTML="Row-"+i+"Col-"+j;
+                
+            }
+        }
+    }
+</script>
+</body></html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function arr(arr){
+            //max
+           var max=Math.max(...arr);
+           var max_index=arr.indexOf(max);
+           var x=arr.splice(max_index,1);
+           var new_max=Math.max(...arr);
+
+           //min
+           var min=Math.min(...arr);
+           var min_index=arr.indexOf(min);
+           var x=arr.splice(min_index,1);
+           var new_min=Math.min(...arr);
+
+           return new_max+" "+new_min;
+
+
+        
+        }
+        console.log(arr([1,2,5,4,3]));
+    </script>
+</body>
+</html>
