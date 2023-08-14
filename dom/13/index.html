@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="get()" onresize="get()">
+    <div id="d">
+        
+    </div>
+    <script>
+       
+
+        function get(){
+            var h=document.documentElement.clientHeight;
+            var w=document.documentElement.clientWidth;
+            
+            document.getElementById("d").innerHTML="<h1>Width:"+w+"Height:"+h+"</h1>"
+        }
+    </script>
+</body>
+</html>

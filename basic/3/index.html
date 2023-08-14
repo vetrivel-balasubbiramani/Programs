@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var date=new Date();
+        var day=date.getDate();
+        day=day<10?'0'+day:day;
+        var month=date.getMonth()+1;
+        month=month<10?'0'+month:month;
+        var year=date.getFullYear();
+        
+
+        console.log(day+"/"+month+"/"+year);
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+       var arr=[1,2,3,2,3,4,2,1,2,4,2,2];
+       for(var i=0;i<arr.length;i++){
+        var max_count=0;
+        var count=0;
+         for(j=0;j<arr.length;j++){
+            if(arr[i]===arr[j]){
+                count++;
+            }
+         }
+         if(count>max_count){
+            max_count=count;
+            var element=arr[i]
+         }
+       }
+       console.log(element+" "+count+" times");
+    </script>
+</body>
+</html>

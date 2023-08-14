@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Reviews</h1>
+    <div>
+        <input type="radio" name="rating" value="1">
+        <input type="radio" name="rating" value="2">
+        <input type="radio" name="rating" value="3">
+        <input type="radio" name="rating" value="4">
+        <input type="radio" name="rating" value="5">
+    </div>
+
+    <div> 
+        <textarea id="comment" placeholder="Enter your comment"></textarea>
+        <br>
+        <button onclick="submit()">Submit</button>
+    </div>
+
+    <br><br><br>
+
+    <table id="table">
+        <tr>
+          <th>Rating</th>
+          <th>Comment</th>
+        </tr>
+    </table>
+
+
+      <script>
+        function submit() {
+          const rating = document.querySelector('input[name="rating"]:checked').value;
+          const comment = document.getElementById('comment').value;
+    
+          const table = document.getElementById('table');
+          const row = table.insertRow();
+          const cell1 = row.insertCell(0);
+          const cell2 = row.insertCell(1);
+          cell1.innerHTML = rating;
+          cell2.innerHTML = comment;
+    
+          document.querySelector('input[name="rating"]:checked').checked = false;
+          document.getElementById('comment').value = '';
+        }
+      </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="f" onsubmit="cal()">
+    Radius:<input type="text" name="rad"><br>
+    Volume:<input type="text" name="vol"><br>
+    <input type="submit" value="submit">
+    </form>  
+    
+  
+     <script>
+        function cal(){
+            var x=document.getElementById('f');
+            var r=x.elements[0].value;
+            var v=x.elements[1].value;
+            alert(r*v);
+            
+            
+        }
+     </script>
+</body>
+</html>

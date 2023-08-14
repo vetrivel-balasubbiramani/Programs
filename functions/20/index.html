@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function pass(val){
+          var values="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+          
+          var res="";
+          for(var i=0;i<val;i++){
+              var random=Math.floor(Math.random()*values.length);
+              res=res+values.charAt(random);
+          }
+          return res;
+        }
+        console.log(pass(4));
+    </script>
+</body>
+</html>

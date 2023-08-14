@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    
+    <script>
+      function con(n){
+        var hour,minute;
+        if(n>=60){
+          hour=Math.floor(n/60);
+          minute=n%60;
+        }else{
+          minute=n;
+        }
+        return hour+"Hours "+minute+" minutes";
+      }
+      
+      console.log(con(570));
+        
+
+    </script>
+</body>
+</html>
