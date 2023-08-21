@@ -42,33 +42,22 @@
                 const rating = $('input[name="rating"]:checked').val();
                 const comment = $('#comment').val();
 
-                if (!rating || !comment) {
-                    alert("Please provide both a rating and a comment.");
-                    return;
-                }
-                
-                var table = $('#table');
-                var row = $('<tr></tr>');
-                var cell1 = $('<td></td>').text(rating);
-                var cell2 = $('<td></td>').text(comment);
-                
-                row.append(cell1, cell2);
-                table.append(row);
-
-                var reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+                let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
                 reviews.push({ rating, comment });
                 localStorage.setItem('reviews', JSON.stringify(reviews));
                 
                 $(this).trigger("reset");
 
+                const table = $('#table');
                 reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-                table = $('#table');
+                table.find('tr:gt(0)').remove();
                 reviews.forEach(review => {
-                row = $('<tr></tr>');
-                cell1 = $('<td></td>').text(review.rating);
-                cell2 = $('<td></td>').text(review.comment);
-                row.append(cell1, cell2);
-                table.append(row);
+                    const row = $('<tr></tr>');
+                    const cell1 = $('<td></td>').text(review.rating);
+                    const cell2 = $('<td></td>').text(review.comment);
+                    row.append(cell1, cell2);
+                    table.append(row);
+                });
             });
         });
     </script>
