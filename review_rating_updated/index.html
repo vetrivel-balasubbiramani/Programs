@@ -10,23 +10,20 @@
 </head>
 <body>
     <h1>Review</h1>
-    <div class="stars">
-        <input type="radio" name="rating" value="1">
-
-        <input type="radio" name="rating" value="2">
-        
-        <input type="radio" name="rating" value="3">
-        
-        <input type="radio" name="rating" value="4">
-        
-        <input type="radio" name="rating" value="5">
-        
-    </div>
-
-    <div id="comment-box"> 
-        <textarea id="comment" placeholder="Enter your comment"></textarea>
-        <button id="submit">Submit</button>
-    </div>
+    <form id="review-form">
+        <div class="stars">
+            <label><input type="radio" name="rating" value="1"></label>
+            <label><input type="radio" name="rating" value="2"></label>
+            <label><input type="radio" name="rating" value="3"></label>
+            <label><input type="radio" name="rating" value="4"></label>
+            <label><input type="radio" name="rating" value="5"></label>
+        </div>
+    
+        <div id="comment-box"> 
+            <textarea id="comment" name="comment" placeholder="Enter your comment"></textarea>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
 
     <br><br><br>
 
@@ -37,28 +34,11 @@
         </tr>
     </table>
 
-
-      <!-- <script>
-        function submit() {
-          const rating = document.querySelector('input[name="rating"]:checked').value;
-          const comment = document.getElementById('comment').value;
-    
-          const table = document.getElementById('table');
-          const row = table.insertRow();
-          const cell1 = row.insertCell(0);
-          const cell2 = row.insertCell(1);
-          cell1.innerHTML = rating;
-          cell2.innerHTML = comment;
-    
-          document.querySelector('input[name="rating"]:checked').checked = false;
-          document.getElementById('comment').value = '';
-        }
-      </script> -->
-
-
-      <script>
+    <script>
         $(document).ready(function() {
-            $('#submit').click(function() {
+            $('#review-form').submit(function(event) {
+                event.preventDefault();
+                
                 const rating = $('input[name="rating"]:checked').val();
                 const comment = $('#comment').val();
                 
@@ -75,11 +55,5 @@
             });
         });
     </script>
-      
-
-      
-
-
-
 </body>
 </html>
