@@ -50,8 +50,7 @@
                 row.append(cell1, cell2);
                 table.append(row);
                 
-                $('input[name="rating"]:checked').prop('checked', false);
-                $('#comment').val('');
+                $('#review-form').trigger("reset");
             });
         });
     </script>
