@@ -41,11 +41,16 @@
                 
                 const rating = $('input[name="rating"]:checked').val();
                 const comment = $('#comment').val();
+
+                if (!rating || !comment) {
+                    alert("Please provide both a rating and a comment.");
+                    return;
+                }
                 
-                const table = $('#table');
-                const row = $('<tr></tr>');
-                const cell1 = $('<td></td>').text(rating);
-                const cell2 = $('<td></td>').text(comment);
+                var table = $('#table');
+                var row = $('<tr></tr>');
+                var cell1 = $('<td></td>').text(rating);
+                var cell2 = $('<td></td>').text(comment);
                 
                 row.append(cell1, cell2);
                 table.append(row);
