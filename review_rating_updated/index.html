@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Review</h1>
+    <div class="stars">
+        <input type="radio" name="rating" value="1">
+
+        <input type="radio" name="rating" value="2">
+        
+        <input type="radio" name="rating" value="3">
+        
+        <input type="radio" name="rating" value="4">
+        
+        <input type="radio" name="rating" value="5">
+        
+    </div>
+
+    <div id="comment-box"> 
+        <textarea id="comment" placeholder="Enter your comment"></textarea>
+        <button id="submit">Submit</button>
+    </div>
+
+    <br><br><br>
+
+    <table id="table">
+        <tr>
+          <th>Rating</th>
+          <th>Comment</th>
+        </tr>
+    </table>
+
+
+      <!-- <script>
+        function submit() {
+          const rating = document.querySelector('input[name="rating"]:checked').value;
+          const comment = document.getElementById('comment').value;
+    
+          const table = document.getElementById('table');
+          const row = table.insertRow();
+          const cell1 = row.insertCell(0);
+          const cell2 = row.insertCell(1);
+          cell1.innerHTML = rating;
+          cell2.innerHTML = comment;
+    
+          document.querySelector('input[name="rating"]:checked').checked = false;
+          document.getElementById('comment').value = '';
+        }
+      </script> -->
+
+
+      <script>
+        $(document).ready(function() {
+            $('#submit').click(function() {
+                const rating = $('input[name="rating"]:checked').val();
+                const comment = $('#comment').val();
+                
+                const table = $('#table');
+                const row = $('<tr></tr>');
+                const cell1 = $('<td></td>').text(rating);
+                const cell2 = $('<td></td>').text(comment);
+                
+                row.append(cell1, cell2);
+                table.append(row);
+                
+                $('input[name="rating"]:checked').prop('checked', false);
+                $('#comment').val('');
+            });
+        });
+    </script>
+      
+
+      
+
+
+
+</body>
+</html>
