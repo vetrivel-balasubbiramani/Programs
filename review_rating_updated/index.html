@@ -35,29 +35,46 @@
     </table>
 
     <script>
+       
+        function renderTable(reviews) {
+            const table = $('#table');
+            table.empty().append(
+                $('<tr><th>Rating</th><th>Comment</th></tr>')
+            );
+            
+            reviews.forEach(review => {
+                const row = $('<tr></tr>');
+                row.append($('<td></td>').text(review.rating));
+                row.append($('<td></td>').text(review.comment));
+                table.append(row);
+            });
+        }
+
+        function updateLocalStorageAndTable(rating, comment, reviews) {
+            reviews.push({ rating, comment });
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            renderTable(reviews);
+        }
+
         $(document).ready(function() {
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            renderTable(reviews);
+
             $('#review-form').submit(function(event) {
                 event.preventDefault();
-                
+
                 const rating = $('input[name="rating"]:checked').val();
                 const comment = $('#comment').val();
 
-                let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-                reviews.push({ rating, comment });
-                localStorage.setItem('reviews', JSON.stringify(reviews));
-                
-                $(this).trigger("reset");
+                if (!rating || !comment) {
+                    alert('Please provide both a rating and a comment.');
+                    return;
+                }
 
-                const table = $('#table');
-                reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-                table.find('tr:gt(0)').remove();
-                reviews.forEach(review => {
-                    const row = $('<tr></tr>');
-                    const cell1 = $('<td></td>').text(review.rating);
-                    const cell2 = $('<td></td>').text(review.comment);
-                    row.append(cell1, cell2);
-                    table.append(row);
-                });
+
+                updateLocalStorageAndTable(rating, comment, reviews);
+
+                $(this).trigger("reset");
             });
         });
     </script>
