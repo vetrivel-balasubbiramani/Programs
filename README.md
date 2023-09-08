@@ -30,8 +30,10 @@ Create a CMS using PHP OOPS and MySQL
 - Admin_space_details.php: Lists all pages and subpages list and give access for users
 
 # Database tables:
-- users: id, username, password, new-password, space_access
-- spaces: spaceId, spaceName, description
-- pages: page_id, content, spaceId, title
-- subpages: sub_id, content, page_id, title
-- comments: cmt_id, page_id, usr_cmt, cmt
+- dbName: details
+- tables:
+   - users: id, username, password, cnfpassword, space_access
+   - spaces: space_id, space_name, description
+   - pages: page_id, content, space_id, title
+   - subpages: sub_id, content, page_id, title
+   - comments: cmt_id, page_id, usr_cmt, cmt
