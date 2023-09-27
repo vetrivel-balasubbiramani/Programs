@@ -1,46 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping App</title>
-  <link rel="stylesheet" href="style/index.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
- 
-</head>
-<body>
-  <header>
-    <h1>Shopping App</h1>
-    <div id="cartContainer">
-      <a id="cartButton" href="cart.html">Cart: <span data-bind="text: cartCount"></span> items</a>
-    </div>
-    <select id="categoryDropdown" data-bind="value: selectedCategory">
-      <option value="all">All</option>
-      <option value="Mobiles">Mobiles</option>
-      <option value="Laptops">Laptops</option>
-      <option value="Television">Television</option>
-    </select>
-  </header>
-  <main id="productList" data-bind="foreach: filteredProducts">
-  <div class="product-card">
-
-      <img data-bind="attr: { src: 'images/' + image + '.webp', alt: name }, click: $parent.showProductDetails.bind($parent, $data)">
-
-      <p data-bind="text: name"></p>
-      <h3 data-bind="text: price"></h3>
-      <p data-bind="text: des"></p>
-      <label>Quantity:</label>
-      <input class="quantity-input" type="number" min="1" max="5" data-bind="value: quantity">
-      <button class="add-to-cart-button" data-bind="click: function() { $parent.addToCart($data, parseInt(quantity(), 10)); }">Add to Cart</button>
-    </div>
-  </main>
-  
-
-  <script src="script/index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping App</title>
+    <link rel="stylesheet" href="style/index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Shopping App</h1>
+      <div id="cartContainer">
+        <a id="cartButton" href="cart.html">Cart: <span data-bind="text: cartCount"></span> items</a>
+      </div>
+      <select id="categoryDropdown" data-bind="value: selectedCategory">
+        <option value="all">All</option>
+        <option value="Mobiles">Mobiles</option>
+        <option value="Laptops">Laptops</option>
+        <option value="Television">Television</option>
+      </select>
+    </header>
+    <main id="productList" data-bind="foreach: filteredProducts">
+      <div class="product-card">
+        <img data-bind="attr: { src: 'images/' + image + '.webp', alt: name }, click: $parent.showProductDetails.bind($parent, $data)"/>
+        <p data-bind="text: name"></p>
+        <h3 data-bind="text: price"></h3>
+        <p data-bind="text: des"></p>
+        <label>Quantity:</label>
+        <input
+          class="quantity-input"
+          type="number"
+          min="1"
+          max="5"
+          data-bind="value: quantity"
+        />
+        <button class="add-to-cart-button" data-bind="click: function() { $parent.addToCart($data, parseInt(quantity(), 10)); }">
+          Add to Cart
+        </button>
+      </div>
+    </main>
+    <script src="script/index.js"></script>
+  </body>
 </html>
-
-
-
-

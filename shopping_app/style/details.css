@@ -1,16 +1,12 @@
-/* Reset some default browser styles */
 body, h1, h2, h3, p, a {
     margin: 0;
     padding: 0;
   }
-  
   body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     color: #333;
   }
-
-
   header {
     background-color: #333;
     color: white;
@@ -19,22 +15,18 @@ body, h1, h2, h3, p, a {
     justify-content: space-between;
     align-items: center;
   }
-  
   header h1 {
     font-size: 24px;
     margin-bottom: 5px;
   }
-  
   header a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
   }
-  
   header a:hover {
     color: #e91e63;
   }
-  
   .container {
     max-width: 800px;
     margin: 0 auto;
@@ -42,24 +34,20 @@ body, h1, h2, h3, p, a {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
   .product-card {
     border: 1px solid #ddd;
     padding: 20px;
     margin-bottom: 20px;
     background-color: #fff;
   }
-  
   .product-card img {
     max-width: 100%;
     height: auto;
   }
-  
   .product-card h3 {
     color: #e91e63;
     margin-top: 10px;
   }
-  
   .product-card p {
     margin-top: 5px;
     color: #555;
@@ -74,7 +62,6 @@ body, h1, h2, h3, p, a {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
-  
   .quantity-input:focus {
     outline: none;
     border-color: #e91e63;
@@ -90,11 +77,9 @@ body, h1, h2, h3, p, a {
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
   .add-to-cart-button:hover {
     background-color: #c2185b;
   }
-
   #cartButton {
     background-color: #e91e63;
     color: #fff;
@@ -105,7 +90,6 @@ body, h1, h2, h3, p, a {
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
   #cartButton:hover {
     background-color: #c2185b;
   }
