@@ -1,0 +1,14 @@
+{
+    "feedback_table": {
+        "column": {
+            "feedback_id": true,
+            "first_name": true,
+            "last_name": true,
+            "email": true,
+            "comment": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

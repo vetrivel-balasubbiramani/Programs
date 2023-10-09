@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Vendor1\CustomerFeedback\Api\Data\GridInterface" type="Vendor1\CustomerFeedback\Model\Feedback" />
+
+    <virtualType name="Vendor1\CustomerFeedback\Model\ResourceModel\Feedback\Feedback\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">feedback_table</argument>
+            <argument name="resourceModel" xsi:type="string">Vendor1\CustomerFeedback\Model\ResourceModel\Feedback</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="thecoachsmb_grid_listing_data_source" xsi:type="string">Vendor1\CustomerFeedback\Model\ResourceModel\Feedback\Feedback\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
