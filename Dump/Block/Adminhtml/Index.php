@@ -32,6 +32,10 @@ class Index extends Template
         return [];
     }
 
+  
+
+    
+
     public function getFormattedConfig()
     {
         $configData = $this->getConfigData();
@@ -52,7 +56,7 @@ class Index extends Template
     {
         $formattedConfig = $this->getFormattedConfig();
 
-        // Remove everything if the parent is 'modules'
+      
         if (isset($formattedConfig['modules'])) {
             return [];
         }
@@ -61,7 +65,7 @@ class Index extends Template
             return $this->isToggleableValue($item['value']);
         });
 
-        return array_values($toggleableConfig); // Re-index the array
+        return array_values($toggleableConfig); 
     }
 
     protected function flattenConfig($parent, $config, $formattedConfig = [])

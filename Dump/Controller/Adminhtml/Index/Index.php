@@ -3,6 +3,7 @@ namespace Vendor1\Dump\Controller\Adminhtml\Index;
 class Index extends \Magento\Backend\App\Action
 {
          protected $resultPageFactory = false;  
+         const ADMIN_RESOURCE='Vendor1_Dump::menu_item';
          
 
          public function __construct(
@@ -18,9 +19,5 @@ class Index extends \Magento\Backend\App\Action
                  $resultPage = $this->resultPageFactory->create();
                  $resultPage->getConfig()->getTitle()->prepend(__('Configuration Dump'));
                  return $resultPage;
-         }
-         protected function _isAllowed()
-         {
-                 return $this->_authorization->isAllowed('Vendor1_Dump::index');
          }
 }
