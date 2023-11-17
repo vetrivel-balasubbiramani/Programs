@@ -1,39 +1,32 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-class AdminLogin {
+class AdminLogin
+{
     private $conn;
-
-    public function __construct($conn) {
+    public function __construct($conn)
+    {
         $this->conn = $conn;
     }
-
-    public function handleAdminLogin() {
+    public function handleAdminLogin()
+    {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $_POST['adminuser'];
             $password = $_POST['adminpassword'];
             if ($user === 'admin' && $password === 'admin123') {
-                // $_SESSION['is_admin'] = true;
+
                 header("Location: Admin.php");
                 exit();
             }
         }
     }
-
-    public function renderPage() {
+    public function renderPage()
+    {
         $this->handleAdminLogin();
     }
 }
-
 require_once 'DatabaseConnection.php';
-
 $adminLogin = new AdminLogin($conn);
-
 $adminLogin->renderPage();
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

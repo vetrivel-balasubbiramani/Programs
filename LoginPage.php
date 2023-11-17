@@ -1,22 +1,16 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 session_start();
 require_once 'DatabaseConnection.php';
-class UserLogin
+
+class LoginPage
 {
-    
     private $conn;
     private $error_message = "";
 
     public function __construct($conn)
     {
         $this->conn = $conn;
-        
-        
     }
-
-    
 
     public function sanitizeInput($data)
     {
@@ -31,9 +25,10 @@ class UserLogin
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $this->sanitizeInput($_POST["user"]);
             $password = $_POST["password"];
-
-            $sql = "SELECT * FROM users WHERE BINARY username='$user'";
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare("SELECT * FROM users WHERE BINARY username=?");
+            $stmt->bind_param("s", $user);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
             if ($result->num_rows === 1) {
                 $row = $result->fetch_assoc();
@@ -41,22 +36,26 @@ class UserLogin
                 if (password_verify($password, $hashed_password)) {
                     $_SESSION['is_user'] = true;
                     $_SESSION["username"] = $user;
-                    header("Location: userPage.php");
+                    header("Location: UserPage.php");
                     exit();
                 } else {
-                    $this->error_message = "Invalid password. Please try again.";
+                    $this->error_message = "Invalid username or password. Please try again.";
                 }
             } else {
-                $this->error_message = "Invalid username. Please try again.";
+                $this->error_message = "Invalid username or password. Please try again.";
             }
+
+            $stmt->close();
         }
     }
+
     public function getErrorMessage()
     {
         return $this->error_message;
     }
 }
-$userLogin = new UserLogin($conn);
+
+$userLogin = new LoginPage($conn);
 $userLogin->handleLogin();
 ?>
 
@@ -69,32 +68,27 @@ $userLogin->handleLogin();
     <title>Login</title>
     <link rel="stylesheet" href="style/LoginPage.css">
     <script>
-       
-       window.onload = function() {
-       
-           var errorMessage = "<?php echo $userLogin->getErrorMessage(); ?>";
-           if (errorMessage !== "") {
-               document.getElementById("error-message").textContent = errorMessage;
-           }
-       };
-   </script>
+        window.onload = function() {
+            var errorMessage = "<?php echo $userLogin->getErrorMessage(); ?>";
+            if (errorMessage !== "") {
+                document.getElementById("error-message").textContent = errorMessage;
+            }
+        }
+    </script>
 </head>
 
 <body>
-<div class="login-container">
+    <div class="login-container">
         <h2 class="login-title">Login</h2>
         <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label class="login-label" for="user">Username:</label>
             <input class="login-input" type="text" id="user" name="user" required>
-
             <label class="login-label" for="password">Password:</label>
             <input class="login-input" type="password" id="password" name="password" required>
-
             <div id="error-message" style="color: red;"></div>
-
             <input class="login-button" type="submit" value="Login">
         </form>
-
-</div>
+    </div>
 </body>
+
 </html>
