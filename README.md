@@ -8,7 +8,7 @@
 
 # Getting Started
 - Clone the alpine branch of a Repository:
-     - git clone https://github.com/example/alpine-slider.git
+     - git clone -b alpine git@github.com:vetrivel-balasubbiramani/my_repo.git
 - Open index.html in a Browser
 
 # Usage
